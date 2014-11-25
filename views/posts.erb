@@ -1,0 +1,8 @@
+<% posts.each do |post| %>
+	<h1><%= JSON.parse(post.to_json)["title"] %></h1>
+	<div>
+	<p>
+		<%= JSON.parse(post.to_json)["text"].gsub("\n\t", "</p><p>") %>
+	</p>
+	</div>
+<% end %>
