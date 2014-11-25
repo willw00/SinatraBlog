@@ -30,6 +30,10 @@ helpers do
 	end
 end
 
+get '/' do 
+	erb :index
+end
+
 get '/posts' do 
 	@posts = find_posts
 	erb :posts, :locals => {:posts => @posts}
