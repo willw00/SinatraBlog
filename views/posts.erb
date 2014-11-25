@@ -1,8 +1,20 @@
 <% posts.each do |post| %>
-	<h1><%= JSON.parse(post.to_json)["title"] %></h1>
+	<% post = post.to_json %>
+	
+	<h3><%= JSON.parse(post)["title"] %></h3>
+	
 	<div>
-	<p>
-		<%= JSON.parse(post.to_json)["text"].gsub("\n\t", "</p><p>") %>
-	</p>
+		<%= JSON.parse(post)["text"] %>
 	</div>
+	
+	<p>
+		<a href="/posts/<%= JSON.parse(post)["url"] %>">post</a>
+	</p>
+
+	<p>	
+	Tags:
+	<% JSON.parse(post)["tags"].each do |tag| %>
+		<a href="/posts/tag/<%= tag %>"><%= tag %></a>
+	<% end %>
+	</p>
 <% end %>

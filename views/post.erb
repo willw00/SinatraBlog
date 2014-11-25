@@ -1,5 +1,10 @@
 <h1><%= JSON.parse(post)["title"] %></h1>
 <hr>
+
 <p>
 <%= JSON.parse(post)["text"].gsub("\n\t", "</p><p>") %>
+</p>
+
+<p>
+	<a href="/posts">all posts</a>
 </p>
