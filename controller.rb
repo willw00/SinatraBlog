@@ -4,7 +4,7 @@ require 'json/ext'
 
 include Mongo
 
-/configure do
+configure do
 	mongo_uri = ENV['MONGOLAB_URI']
 	connection = mongo_uri ? MongoClient.from_uri(mongo_uri) : 
 			MongoClient.new("localhost", 27017)
@@ -12,7 +12,7 @@ include Mongo
 	set :mongo_connection, connection
 	set :mongo_db, connection.db('Blog')
 end
-/
+
 helpers do 
 	def find_posts
 		settings.mongo_db['Posts'].
